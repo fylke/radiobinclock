@@ -1,12 +1,14 @@
-all: ur.hex
+TARGET=clock.hex
 
-ur.hex: ur.asm
+all: $(TARGET)
+
+$(TARGET): $(TARGET:.hex=.asm)
 	tavrasm -o $@ $^
 
 .PHONY: install
-install: ur.hex
+install: $(TARGET)
 	avrdude -p m8  -U flash:w:$^:i
 
 .PHONY: clean
 clean:
-	-rm -f ur.hex
+	-rm -f $(TARGET)
