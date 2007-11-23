@@ -18,7 +18,7 @@
 	; Counter overflow.
 	rjmp	counter_overflow
 
-
+.include "decode_dcf77.asm"
 .include "dcf77_comm.asm"
 
 ; Main program
